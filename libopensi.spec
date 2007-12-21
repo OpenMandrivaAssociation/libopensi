@@ -14,6 +14,7 @@ Source0:	%{name}-%{version}.tar.bz2
 License:	MPL
 Group:		System/Libraries
 Url:		http://opensi.org/
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:	mozilla-firefox
 Requires(pre):	mozilla-firefox = %{firefox_version}
 
