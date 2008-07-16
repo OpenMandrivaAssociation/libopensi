@@ -1,6 +1,6 @@
 %define name	libopensi
 %define version 1.0
-%define release 3
+%define release 4
 %define firefox_version %(rpm -q mozilla-firefox --queryformat %{VERSION})
 %define firefox_epoch %(rpm -q mozilla-firefox --queryformat %{EPOCH})
 %define mozillalibdir %{_libdir}/mozilla-firefox-%{firefox_version}
@@ -49,4 +49,3 @@ rm -rf %{buildroot}
 %defattr(-,root,root)
 %{mozillalibdir}/chrome/%{name}
 %{mozillalibdir}/chrome/rc.d/10_%{name}.txt
-
