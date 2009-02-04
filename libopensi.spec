@@ -1,6 +1,6 @@
 %define name	libopensi
 %define version 1.0
-%define release 8
+%define rel	9
 %define firefox_version %(rpm -q --whatprovides mozilla-firefox --queryformat %{VERSION})
 %define firefox_epoch %(rpm -q --whatprovides mozilla-firefox --queryformat %{EPOCH})
 %define mozillalibdir %{_libdir}/firefox-%{firefox_version}
@@ -8,7 +8,7 @@
 Summary:	Library for OpenSi
 Name:		%{name}
 Version:	%{version}
-Release:	%mkrel %{release}
+Release:	%mkrel %{rel}
 Source0:	http://download.gna.org/opensi/%name/%name-%version.tgz
 License:	MPL
 Group:		System/Libraries
