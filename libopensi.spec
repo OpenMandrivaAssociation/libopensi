@@ -1,6 +1,6 @@
 %define name	libopensi
 %define version 1.0
-%define rel	11
+%define rel	12
 %define firefox_version %(rpm -q --whatprovides mozilla-firefox --queryformat %{VERSION})
 %define firefox_epoch %(rpm -q --whatprovides mozilla-firefox --queryformat %{EPOCH})
 %define mozillalibdir %{_libdir}/firefox-%{firefox_version}
