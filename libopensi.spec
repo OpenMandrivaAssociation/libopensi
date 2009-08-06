@@ -1,8 +1,8 @@
 %define name	libopensi
 %define version 1.0
-%define rel	14
-%define firefox_version %(rpm -q --whatprovides mozilla-firefox --queryformat %{VERSION})
-%define firefox_epoch %(rpm -q --whatprovides mozilla-firefox --queryformat %{EPOCH})
+%define rel	15
+%define firefox_version %(rpm -q --whatprovides firefox --queryformat %{VERSION})
+%define firefox_epoch %(rpm -q --whatprovides firefox --queryformat %{EPOCH})
 %define mozillalibdir %{_libdir}/firefox-%{firefox_version}
 
 Summary:	Library for OpenSi
@@ -14,8 +14,8 @@ License:	MPL
 Group:		System/Libraries
 Url:		http://opensi.org/
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
-BuildRequires:	mozilla-firefox
-Requires(pre):	mozilla-firefox = %{firefox_epoch}:%{firefox_version}
+BuildRequires:	firefox
+Requires:	firefox = %{firefox_epoch}:%{firefox_version}
 
 %description
 Library for OpenSi.
@@ -35,12 +35,6 @@ mkdir -p %{buildroot}%{mozillalibdir}/chrome/rc.d/
 cat << EOF > %{buildroot}%{mozillalibdir}/chrome/rc.d/10_%{name}.txt
 content,install,url,resource:/chrome/libopensi/content/libopensi/
 EOF
-
-%post
-if test -x %{mozillalibdir}/mozilla-rebuild-databases.pl; then %{mozillalibdir}/mozilla-rebuild-databases.pl; fi
-
-%postun
-if test -x %{mozillalibdir}/mozilla-rebuild-databases.pl; then %{mozillalibdir}/mozilla-rebuild-databases.pl; fi
 
 %clean
 rm -rf %{buildroot}
