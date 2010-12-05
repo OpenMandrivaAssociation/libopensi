@@ -1,6 +1,6 @@
 %define name	libopensi
 %define version 1.0
-%define rel	18
+%define rel	19
 
 Summary:	Library for OpenSi
 Name:		%{name}
