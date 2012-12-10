@@ -1,18 +1,16 @@
-%define name	libopensi
-%define version 1.0
-%define rel	19
+%define _enable_debug_packages %{nil}
+%define debug_package %{nil}
 
 Summary:	Library for OpenSi
-Name:		%{name}
-Version:	%{version}
-Release:	%mkrel %{rel}
-Source0:	http://download.gna.org/opensi/%name/%name-%version.tgz
+Name:		libopensi
+Version:	1.0
+Release:	20
+Source0:	http://download.gna.org/opensi/%{name}/%{name}-%{version}.tgz
 License:	MPL
 Group:		System/Libraries
 Url:		http://opensi.org/
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:	firefox-devel
-Requires:	firefox = %{firefox_epoch}:%{firefox_version}
+Requires:	firefox >= %{firefox_epoch}:%{firefox_version}
 
 %description
 Library for OpenSi.
@@ -23,7 +21,6 @@ Library for OpenSi.
 %build
 
 %install
-rm -rf %buildroot
 # Jar for the translation
 mkdir -p %{buildroot}%{firefox_mozillapath}/chrome/
 cp -r `pwd`  %{buildroot}%{firefox_mozillapath}/chrome/
@@ -33,10 +30,7 @@ cat << EOF > %{buildroot}%{firefox_mozillapath}/chrome/rc.d/10_%{name}.txt
 content,install,url,resource:/chrome/libopensi/content/libopensi/
 EOF
 
-%clean
-rm -rf %{buildroot}
-
 %files
-%defattr(-,root,root)
 %{firefox_mozillapath}/chrome/libopensi
 %{firefox_mozillapath}/chrome/rc.d/*.txt
+
