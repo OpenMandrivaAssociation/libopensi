@@ -4,7 +4,7 @@
 Summary:	Library for OpenSi
 Name:		libopensi
 Version:	1.0
-Release:	20
+Release:	21
 Source0:	http://download.gna.org/opensi/%{name}/%{name}-%{version}.tgz
 License:	MPL
 Group:		System/Libraries
