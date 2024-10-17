@@ -8,7 +8,7 @@ Release:	21
 Source0:	http://download.gna.org/opensi/%{name}/%{name}-%{version}.tgz
 License:	MPL
 Group:		System/Libraries
-Url:		http://opensi.org/
+Url:		https://opensi.org/
 BuildRequires:	firefox-devel
 Requires:	firefox >= %{firefox_epoch}:%{firefox_version}
 
